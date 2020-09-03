@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<!-- <body onload =location.href="{% url 'scrape' %}"> -->
+<body>
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">NAVBAR</a>
+    </nav> -->
+    <div class="jumbotron" style="background-color: blue;">
+        <center><h1 style="color:yellow">Indiana News from Reddit</h1>
+            <a href="{% url 'scrape' %}" class="btn btn-success">Update News</a>
+        </center>
+    </div>
+  <div class="container" style ="float: left; border-right: 1px solid black; max-width: 50%; border-bottom: 1px solid black;">
+      <h2 style="color: blue;">Indianapolis</h2>
+      {% for object in object_list %}
+    <div class="row">
+        <div class="col-sm">
+            <p>
+                <a href="{{object.url}}"><p>{{object.title}}</p></a>
+            </p>
+    </div>
+  </div>
+  {% endfor %}
+    </div>
+    <div class="container" style ="float: right; max-width: 50%; padding-left: 5%; border-bottom: 1px solid black;">
+        <h2 style="color: blue;">Indiana</h2>
+        {% for object in IN_list %}
+        <div class="row">
+            <div class="col-">
+                <p>
+                    <a href="{{object.url}}"><p>{{object.title}}</p></a>
+                </p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+        <div class="container" style ="float: left; border-right: 1px solid black; max-width: 50%;">
+            <h2 style="color: blue;">Purdue</h2>
+            {% for object in PU_list %}
+            <div class="row">
+                <div class="col-sm">
+                    <p class="card-title">
+                        <a href="{{object.url}}"><p>{{object.title}}</p></a>
+                    </p>
+            </div>
+          </div>
+          {% endfor %}
+            </div>
+
+            <div class="container" style ="float: right; max-width: 50%; padding-left: 5%;">
+                <h2 style="color: blue;">Boilermaker Sports</h2>
+                {% for object in Boiler_list %}
+                <div class="row">
+                    <div class="col-sm">
+                        <p class="card-title">
+                            <a href="{{object.url}}"><p>{{object.title}}</p></a>
+                        </p>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+
+    <script
+src="http://code.jquery.com/jquery-3.3.1.min.js"
+integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
